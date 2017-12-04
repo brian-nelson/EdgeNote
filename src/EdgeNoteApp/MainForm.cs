@@ -39,17 +39,51 @@ namespace EdgeNote.App
 
         private void RefreshNotebook()
         {
+            if (m_NoteBook == null)
+            {
+                ClearNotebook();
+                DisableScreen();
+            } 
+            else
+            {
+                EnableScreen();
 
+
+            }
+        }
+
+        private void ClearNotebook()
+        {
+            lstNotes.DataSource = null;
+
+            DisableScreen();
+        }
+
+        private void DisableScreen()
+        {
+            lstNotes.Enabled = false;
+            tabEditor.Enabled = false;
+            tabEdit.Select();
+        }
+
+        private void EnableScreen()
+        {
+            lstNotes.Enabled = true;
+            tabEditor.Enabled = true;
         }
 
         private void closeToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            m_NoteBook = null;
 
+            RefreshNotebook();
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+            m_NoteBook = null;
+
+            Close();
         }
 
         private void newToolStripMenuItem_Click(object sender, EventArgs e)

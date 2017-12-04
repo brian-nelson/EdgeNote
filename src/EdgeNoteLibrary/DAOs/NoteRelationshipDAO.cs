@@ -22,7 +22,14 @@ namespace EdgeNote.Library.DAOs
 
         public List<NoteRelationship> GetRelated(Guid _id)
         {
-            return null;
+            var sideA = Collection.Find(Query.EQ("SideA", _id));
+            var sideB = Collection.Find(Query.EQ("SideB", _id));
+
+            List<NoteRelationship> relationships = new List<NoteRelationship>();
+            relationships.AddRange(sideA);
+            relationships.AddRange(sideB);
+
+            return relationships;
         }
     }
 }

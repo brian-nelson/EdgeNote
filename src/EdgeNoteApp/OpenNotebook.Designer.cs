@@ -113,7 +113,11 @@
             this.Controls.Add(this.btnBrowse);
             this.Controls.Add(this.lblFile);
             this.Controls.Add(this.txtFilePath);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "OpenNotebook";
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.Text = "Open Notebook";
             this.ResumeLayout(false);
             this.PerformLayout();
