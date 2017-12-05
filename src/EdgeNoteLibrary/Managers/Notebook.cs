@@ -1,5 +1,7 @@
 ﻿using EdgeNote.Library.DAOs;
+using EdgeNote.Library.Objects;
 using LiteDB;
+using System.Collections.Generic;
 
 namespace EdgeNote.Library.Managers
 {
@@ -24,6 +26,18 @@ namespace EdgeNote.Library.Managers
             NoteTypeDAO noteTypeDao = new NoteTypeDAO(m_DB);
             NoteDAO noteDao = new NoteDAO(m_DB);
             NoteRelationshipDAO nrDao = new NoteRelationshipDAO(m_DB);           
+        }
+
+        public List<Note> GetAllNotes()
+        {
+            NoteDAO dao = new NoteDAO(m_DB);
+            return dao.GetAll();
+        }
+
+        public void Save(Note note)
+        {
+            NoteDAO dao = new NoteDAO(m_DB);
+            dao.Save(note);
         }
     }
 }

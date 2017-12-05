@@ -1,14 +1,7 @@
-﻿using EdgeNote.App;
-using EdgeNote.Library.Managers;
+﻿using EdgeNote.Library.Managers;
 using EdgeNote.Library.Objects;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace EdgeNote.App
@@ -48,7 +41,8 @@ namespace EdgeNote.App
             {
                 EnableScreen();
 
-
+                List<Note> notes = m_NoteBook.GetAllNotes();
+                lstNotes.DataSource = notes;
             }
         }
 
@@ -96,6 +90,21 @@ namespace EdgeNote.App
             {
                 m_NoteBook = nnf.Notebook;
 
+                RefreshNotebook();
+            }
+        }
+
+        private void addNote_Click(object sender, EventArgs e)
+        {
+            EditNote editor = new EditNote();
+            editor.Note = new Note();
+            editor.SetupForm();
+
+            var result = editor.ShowDialog();
+
+            if (result == DialogResult.OK)
+            {
+                m_NoteBook.Save(editor.Note);
                 RefreshNotebook();
             }
         }

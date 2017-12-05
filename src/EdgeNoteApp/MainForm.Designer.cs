@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -36,13 +37,15 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.addNote = new System.Windows.Forms.ToolStripButton();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.lblNotes = new System.Windows.Forms.Label();
+            this.lstNotes = new System.Windows.Forms.ListBox();
             this.tabEditor = new System.Windows.Forms.TabControl();
             this.tabEdit = new System.Windows.Forms.TabPage();
             this.tabViewer = new System.Windows.Forms.TabPage();
-            this.lstNotes = new System.Windows.Forms.ListBox();
-            this.lblNotes = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
+            this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -109,11 +112,23 @@
             // 
             // toolStrip1
             // 
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addNote});
             this.toolStrip1.Location = new System.Drawing.Point(0, 24);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(859, 25);
             this.toolStrip1.TabIndex = 2;
             this.toolStrip1.Text = "toolStrip1";
+            // 
+            // addNote
+            // 
+            this.addNote.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.addNote.Image = ((System.Drawing.Image)(resources.GetObject("addNote.Image")));
+            this.addNote.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.addNote.Name = "addNote";
+            this.addNote.Size = new System.Drawing.Size(23, 22);
+            this.addNote.Text = "toolStripButton1";
+            this.addNote.Click += new System.EventHandler(this.addNote_Click);
             // 
             // splitContainer1
             // 
@@ -132,6 +147,27 @@
             this.splitContainer1.Size = new System.Drawing.Size(859, 461);
             this.splitContainer1.SplitterDistance = 286;
             this.splitContainer1.TabIndex = 3;
+            // 
+            // lblNotes
+            // 
+            this.lblNotes.AutoSize = true;
+            this.lblNotes.Location = new System.Drawing.Point(3, 3);
+            this.lblNotes.Name = "lblNotes";
+            this.lblNotes.Size = new System.Drawing.Size(35, 13);
+            this.lblNotes.TabIndex = 1;
+            this.lblNotes.Text = "Notes";
+            // 
+            // lstNotes
+            // 
+            this.lstNotes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lstNotes.DisplayMember = "Subject";
+            this.lstNotes.FormattingEnabled = true;
+            this.lstNotes.Location = new System.Drawing.Point(3, 25);
+            this.lstNotes.Name = "lstNotes";
+            this.lstNotes.Size = new System.Drawing.Size(280, 433);
+            this.lstNotes.TabIndex = 0;
             // 
             // tabEditor
             // 
@@ -166,26 +202,6 @@
             this.tabViewer.Text = "Viewer";
             this.tabViewer.UseVisualStyleBackColor = true;
             // 
-            // lstNotes
-            // 
-            this.lstNotes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lstNotes.FormattingEnabled = true;
-            this.lstNotes.Location = new System.Drawing.Point(3, 25);
-            this.lstNotes.Name = "lstNotes";
-            this.lstNotes.Size = new System.Drawing.Size(280, 433);
-            this.lstNotes.TabIndex = 0;
-            // 
-            // lblNotes
-            // 
-            this.lblNotes.AutoSize = true;
-            this.lblNotes.Location = new System.Drawing.Point(3, 3);
-            this.lblNotes.Name = "lblNotes";
-            this.lblNotes.Size = new System.Drawing.Size(35, 13);
-            this.lblNotes.TabIndex = 1;
-            this.lblNotes.Text = "Notes";
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -200,6 +216,8 @@
             this.Text = "EdgeNote";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
@@ -227,6 +245,7 @@
         private System.Windows.Forms.TabPage tabEdit;
         private System.Windows.Forms.TabPage tabViewer;
         private System.Windows.Forms.Label lblNotes;
+        private System.Windows.Forms.ToolStripButton addNote;
     }
 }
 
